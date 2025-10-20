@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Shagun Manojsingh Pardeshi</title>
+
+  <!-- Primary external stylesheet (keeps global look if present) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Embedded fallback styles (ensures page is styled even if external file is missing) -->
+  <style>
+    :root{
+      --bg:#0f2c2c;
+      --card:#103636;
+      --muted:#a7f3d0;
+      --accent1:#10b981;
+      --accent2:#34d399;
+      --glass:rgba(255,255,255,0.04);
+      --radius:12px;
+      --maxw:900px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--bg);
+      color: #e6fdf4;
+      -webkit-font-smoothing:antialiased;
+      padding: 30px 16px;
+    }
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      padding:24px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,0.03);
+      color: #e6fdf4;
+    }
+    h2{font-size:28px;margin-bottom:12px;color:var(--accent2)}
+    h3{font-size:18px;margin-top:16px;margin-bottom:8px;color:var(--accent1)}
+    p, li{color:#d1f7eb;line-height:1.6}
+    ul{margin-left:20px;margin-top:6px}
+    .muted{color:var(--muted)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:#031312;text-decoration:none;cursor:pointer;margin-top:14px}
+    footer{margin-top:18px;color:var(--muted);text-align:center}
+    /* print friendly */
+    @media print{
+      body{background:white;color:black;padding:0}
+      .card{background:white;border:none;padding:0}
+      .btn{display:none}
+    }
+    /* small screens */
+    @media (max-width:520px){
+      .card{padding:16px}
+      h2{font-size:22px}
+      h3{font-size:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="resume">
+      <h2>Resume</h2>
+
+      <h3>Objective</h3>
+      <p>To build a successful career in software and web development by applying creativity and logic.</p>
+
+      <h3>Education</h3>
+      <ul>
+        <li>BCA — Smt. Jamnabai H Wadhwa Woman College (2023–2027)</li>
+        <li>HSC — Don Bosco School, Kalyan</li>
+      </ul>
+
+      <h3>Skills</h3>
+      <p>HTML, CSS, Java, C++, Python, SQL</p>
+
+      <h3>Projects</h3>
+      <ul>
+        <li>Webmart Clone — An e-commerce web app using HTML, CSS, JS, MySQL</li>
+        <li>Hotel Booking Interface — Responsive booking portal design</li>
+        <li>Japanese Cuisine Website — Informational web pages</li>
+      </ul>
+
+      <h3>Certifications</h3>
+      <ul>
+        <li>HTML/CSS/JS for Web Developers – Coursera</li>
+        <li>Floydee BookCamp</li>
+        <li>ExcelR Salesforce Development</li>
+        <li>Personality Development</li>
+      </ul>
+
+      <h3>Contact Information</h3>
+      <p>Email: <strong>shagunpardeshi471@gmail.com</strong></p>
+      <p>Phone: <strong>+91-9322287325</strong></p>
+
+      <a class="btn" onclick="window.print()">📄 Save as PDF</a>
+    </div>
+
+    <footer>
+      <p>© <span id="year"></span> Shagun Manojsingh Pardeshi</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Shagun Manoj Pardeshi</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>.editor-row{display:flex;justify-content:flex-end;gap:8px;margin:18px auto;max-width:1100px}</style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">SMP</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html" class="contact-btn">Contact</a>
+    </nav>
+  </header>
+
+ 
+      <section style="padding:3rem 5%; background:#102a26;">
+      <h2>Contact</h2>
+      <p class="muted">Feel free to reach out for collaborations or questions.</p>
+
+      <div class="contact-wrap card" style="margin-top:12px;">
+        <form onsubmit="alert('This form is editable only — add your own backend or replace with mailto link.'); return false;">
+          <label>
+            Your name<br>
+            <input type="text" placeholder="Your name" style="padding:10px;border-radius:8px;border:none;background:#134e4a;color:#e0f2f1;width:100%;margin-top:6px;" />
+          </label>
+          <label style="display:block;margin-top:8px;">
+            Your email<br>
+            <input type="email" placeholder="you@example.com" style="padding:10px;border-radius:8px;border:none;background:#134e4a;color:#e0f2f1;width:100%;margin-top:6px;" />
+          </label>
+          <label style="display:block;margin-top:8px;">
+            Message<br>
+            <textarea rows="5" style="padding:10px;border-radius:8px;border:none;background:#134e4a;color:#e0f2f1;width:100%;margin-top:6px;"></textarea>
+          </label>
+          <p style="margin-top:12px;"><button class="btn" type="button" onclick="alert('This is an editable demo button — connect to your backend to send messages.')">Send message</button></p>
+        </form>
+      </div>
+
+      <div style="margin-top:12px" class="muted">
+        <div>Email: <strong>pardeshimanoj936@gmail.com</strong></div>
+        <div>Phone: <strong>+91-9322287325</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'page_contact_html_v1';
+    const editable = document.getElementById('editable');
+    const saveBtn = document.getElementById('saveBtn');
+    const restoreBtn = document.getElementById('restoreBtn');
+    const printBtn = document.getElementById('printBtn');
+    const defaultSnapshot = editable.innerHTML;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) editable.innerHTML = saved;
+    });
+
+    saveBtn.addEventListener('click', () => {
+      localStorage.setItem(STORAGE_KEY, editable.innerHTML);
+      alert('✅ Contact page saved.');
+    });
+
+    restoreBtn.addEventListener('click', () => {
+      if (confirm('Restore default contact content?')) {
+        editable.innerHTML = defaultSnapshot;
+        localStorage.removeItem(STORAGE_KEY);
+        alert('Restored default contact content.');
+      }
+    });
+
+    printBtn.addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

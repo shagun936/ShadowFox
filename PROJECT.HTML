@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Shagun Manoj Pardeshi</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>.editor-row{display:flex;justify-content:flex-end;gap:8px;margin:18px auto;max-width:1100px}</style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">SMP</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html" class="contact-btn">Contact</a>
+    </nav>
+  </header>
+
+  <div class="editor-row">
+    <button id="saveBtn" class="mini-btn">💾 Save Changes</button>
+    <button id="restoreBtn" class="mini-btn ghost">♻️ Restore Default</button>
+    <button id="printBtn" class="mini-btn">📄 Save as PDF</button>
+  </div>
+
+  <main id="editable" contenteditable="true" style="max-width:1100px;margin:0 auto;">
+    <section class="hero" style="padding:2.5rem 5%;">
+      <h2>Projects</h2>
+      <p class="muted">Selected work and mini case studies.</p>
+
+      <div class="projects-list" style="margin-top:12px;">
+        <article class="project-card card" style="background:#102a26;padding:16px;border-radius:12px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div class="thumb" style="width:88px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(135deg,#10b981,#34d399);">Web</div>
+            <div>
+              <h3>User-Friendly Website</h3>
+              <p>Designed and developed a travel agency and hotel booking platform with an intuitive responsive interface, interactive features and a smooth reservation flow.</p>
+              <p class="muted">Technologies: HTML, CSS, JavaScript</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card card" style="background:#102a26;padding:16px;border-radius:12px;margin-top:12px;">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div class="thumb" style="width:88px;height:64px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(135deg,#10b981,#34d399);">App</div>
+            <div>
+              <h3>Responsive Dashboard</h3>
+              <p>Responsive dashboard with charts and filters for data insights.</p>
+              <p class="muted">Technologies: HTML, CSS, JS</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- You can add more project cards directly here -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'page_projects_html_v1';
+    const editable = document.getElementById('editable');
+    const saveBtn = document.getElementById('saveBtn');
+    const restoreBtn = document.getElementById('restoreBtn');
+    const printBtn = document.getElementById('printBtn');
+    const defaultSnapshot = editable.innerHTML;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) editable.innerHTML = saved;
+    });
+
+    saveBtn.addEventListener('click', () => {
+      localStorage.setItem(STORAGE_KEY, editable.innerHTML);
+      alert('✅ Projects page saved.');
+    });
+
+    restoreBtn.addEventListener('click', () => {
+      if (confirm('Restore default projects content?')) {
+        editable.innerHTML = defaultSnapshot;
+        localStorage.removeItem(STORAGE_KEY);
+        alert('Restored default projects content.');
+      }
+    });
+
+    printBtn.addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>
